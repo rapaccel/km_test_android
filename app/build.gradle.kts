@@ -43,6 +43,7 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4")
     implementation("androidx.core:core-ktx:1.9.0")
+    implementation ("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")

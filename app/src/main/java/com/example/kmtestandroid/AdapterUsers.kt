@@ -1,5 +1,6 @@
 package com.example.kmtestandroid
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -29,9 +30,13 @@ class AdapterUsers(val context: Context, var dataList: List<DataUsers>): Recycle
             .load(item.image)
             .into(holder.iamge)
         holder.relative.setOnClickListener {
-            val intent = Intent(context, MainActivity2::class.java)
-            intent.putExtra("selectedName", item.name)
-            context.startActivity(intent)
+            val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("selectedName", item.name)
+            editor.apply()
+            if (context is Activity) {
+                context.finish()
+            }
         }
 
     }

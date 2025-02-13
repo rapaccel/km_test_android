@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,19 +32,19 @@ class MainActivity3 : AppCompatActivity() {
 
         setupRecyclerView()
         setupSwipeRefresh()
-        getUsers(isRefresh = true)
 
         binding.backThirdScreen.setOnClickListener {
             finish()
         }
+        getUsers(isRefresh = true)
     }
+
 
     private fun setupRecyclerView() {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerViewMenunggu.layoutManager = layoutManager
         adapter = AdapterUsers(this, allUsers)
         binding.recyclerViewMenunggu.adapter = adapter
-
         binding.recyclerViewMenunggu.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
